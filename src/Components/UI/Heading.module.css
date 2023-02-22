@@ -1,0 +1,48 @@
+.heading {
+  margin: 0;
+  width: 100% auto;
+  height: 90px;
+  background: red;
+}
+.head_container {
+  margin: 0% auto;
+}
+.head {
+  background: red;
+  float: left;
+  color: white;
+  margin-left: 30px;
+}
+.head h2 {
+  padding: 5px;
+}
+
+.cart {
+  background: rgb(95, 86, 86);
+  padding: 0;
+  float: right;
+  width: 20%;
+  border: 1px black transparent;
+  border-radius: 35px;
+  text-align: center;
+  margin-top: 25px;
+
+  height: max-content;
+  margin-right: 40px;
+}
+.cart p {
+  border: transparent 1px black;
+  border-radius: 4px;
+  padding: 0;
+  color: white;
+  text-align: center;
+  width: 80%;
+}
+.image {
+  margin: 0;
+}
+.image img {
+  height: 150px;
+  margin-top: 5px;
+  width: 100%;
+}
