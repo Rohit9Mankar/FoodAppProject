@@ -1,0 +1,14 @@
+.mealList{
+    left:10%;
+    background: whitesmoke;
+    margin-top:20px;
+    top: 300px;
+    width:70%;
+    height:400px;
+    position:relative;
+    text-align: left;
+    border-radius: 6px;
+    border:1px solid yellow;
+    text-align: left;
+    margin-bottom: 30px;
+}
