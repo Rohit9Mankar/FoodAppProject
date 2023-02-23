@@ -1,4 +1,5 @@
 import React from "react";
+
 import MealItem from "./MealItem";
 import classes from './Meals.module.css';
 
@@ -7,12 +8,17 @@ const Meals = (props) => {
         <ul className={classes.mealList}>
             {
                 props.items.map((item) => (
-                    <MealItem
+                  
+                          <MealItem
                         key={item.id}
                         dish={item.dish}
                         content={item.content}
                         price={item.price}
                     />
+                    
+                    
+                  
+                    
                 )
                     
 

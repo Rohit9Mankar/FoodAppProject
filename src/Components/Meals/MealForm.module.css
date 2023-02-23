@@ -1,0 +1,19 @@
+.form{
+    float:right;
+    display: flex;
+    width:100px;
+    height:30px;
+    margin-left: 250px;
+    margin-right: 0px;
+    margin-bottom: 15px;
+}
+.control input{
+width:30px;
+
+}
+.form button{
+    background-color: red;
+    color: white;
+    border-radius: 4px;
+    border:1px solid white;
+}
