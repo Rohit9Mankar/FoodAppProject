@@ -1,0 +1,18 @@
+.summary{
+    width: 80%;
+    height: 10rem;
+    border-radius: 6px;
+    color: white;
+    position: absolute;
+    font-size: medium;
+    background-color: antiquewhite;
+    text-align: center;
+    margin-left: 70px;
+    top: 200px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    background-color:rgb(54, 48, 48)
+}
+.summary p{
+    width:100%;
+    font-size:11px;
+}
