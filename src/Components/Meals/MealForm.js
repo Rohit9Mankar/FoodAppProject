@@ -10,7 +10,8 @@ const MealForm = (props) => {
                     <label htmlFor="amount">Amount</label>
                     <input
                         type="number"
-                        id="amount"></input>
+                        id="amount"
+                        placeholder="0"></input>
                 </div>
 
                 <button onClick={props.onClick}>+Add</button>

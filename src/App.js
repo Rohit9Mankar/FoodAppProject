@@ -1,4 +1,5 @@
 import React from "react";
+import Cart from "./Components/Cart/Cart";
 import Meals from "./Components/Meals/Meals";
 
 
@@ -32,10 +33,12 @@ function App() {
     }
   ];
   return (
-<div>
+<React.Fragment>
+<Cart></Cart>
 <Heading count="0" />
+
 <Meals items={dishes}/>
-</div>
+</React.Fragment>
     
 
 
