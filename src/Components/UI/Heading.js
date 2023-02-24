@@ -6,8 +6,8 @@ import Summary from "../Layout/Summary";
 
 const Heading = (props) => {
     return (
-        
-             <div className={classes.heading}>
+
+        <div className={classes.heading}>
             <div className={classes.head_container}>
                 <div className={classes.head}>
 
@@ -15,20 +15,20 @@ const Heading = (props) => {
                 </div>
 
                 <div className={classes.cart}>
-                    <button>🛒 Your cart <span style={{ backgroundColor: "red", borderRadius: "4px", padding: "3px" }}>{props.count}</span></button>
+                    <button onClick={props.onClick}>🛒 Your cart <span style={{ backgroundColor: "red", borderRadius: "4px", padding: "3px" }}>{props.count}</span></button>
                 </div>
-                
+
             </div>
 
 
             <div className={classes.image}>
                 <img alt="sitehomepage" src={siteImage}></img>
-                <Summary/>
+                <Summary />
             </div>
-            
+
         </div>
-        
-       
+
+
 
 
 
