@@ -1,7 +1,13 @@
-import React from "react";
+import React,{useState} from "react";
+
 import classes from './MealForm.module.css';
 
 const MealForm = (props) => {
+    const [amountNumber,setAmountNumber]=useState(0);
+const amountChangeHandler=(event)=>{
+    setAmountNumber(event.target.value)
+    
+}
     return (
 
         <form className={classes.form}>
@@ -11,7 +17,9 @@ const MealForm = (props) => {
                     <input
                         type="number"
                         id="amount"
-                        placeholder="0"></input>
+                        placeholder="0"
+                        onChange={amountChangeHandler}
+                        value={amountNumber}></input>
                 </div>
 
                 <button onClick={props.onClick}>+Add</button>

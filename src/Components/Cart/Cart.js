@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import ReactDOM from "react-dom";
+import CartContext from "../../store/cart-context";
 import classes from './Cart.module.css';
+import CartItem from "./CartItem";
 
 const BackDrop = () => {
     return (
@@ -8,28 +10,41 @@ const BackDrop = () => {
     )
 };
 const CartModal = (props) => {
+    const cartCtx = useContext(CartContext);
+  
+
+    const orderedMeals = cartCtx.items.map((item) => (
+        <li>
+            <CartItem key={item.id} id={item.id} dish={item.dish} price={item.price} />
+        </li>
+        
+
+    ));
+ 
+
     return (
+
         <div className={classes.modal}>
-            <h3>Sushi</h3>
-            <div className={classes.control}>
-                <h2>Total Amount</h2>
-                <h2>35.62</h2>
+            {orderedMeals}
+
+            <h2>Total Amount</h2>
+            <h2>{cartCtx.totalAmount}</h2>
+                <div className={classes.actions}>
+                    <button onClick={props.onClick}>Close</button>
+                    <button>Order</button>
+                </div>
             </div>
-            <div className={classes.actions}>
-                <button onClick={props.onClick}>Close</button>
-                <button>Order</button>
-            </div>
-        </div>
-    )
+            )
 };
 const Cart = (props) => {
+
     return (
-        <React.Fragment>
-            {ReactDOM.createPortal(<BackDrop />,
-                document.getElementById("backdrop"))}
-            {ReactDOM.createPortal(<CartModal onClick={props.onClick} />,
-                document.getElementById("cart-modal"))}
-        </React.Fragment>
-    )
+            <React.Fragment>
+                {ReactDOM.createPortal(<BackDrop />,
+                    document.getElementById("backdrop"))}
+                {ReactDOM.createPortal(<CartModal onClick={props.onClick} />,
+                    document.getElementById("cart-modal"))}
+            </React.Fragment>
+            )
 };
-export default Cart;
+            export default Cart;
