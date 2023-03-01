@@ -1,28 +1,38 @@
-import React,{useState} from "react";
+import React, { useContext } from "react";
+import Input from "../UI/Input";
+import CartContext from "../../store/cart-context";
 
 import classes from './MealForm.module.css';
 
 const MealForm = (props) => {
-    const [amountNumber,setAmountNumber]=useState(0);
-const amountChangeHandler=(event)=>{
-    setAmountNumber(event.target.value)
+    const cartCtx = useContext(CartContext);
+
     
-}
+
+    const addMealHandler = (event) => {
+        event.preventDefault();
+        const quantty = document.getElementById('amount_' + props.item.id).value;
+        cartCtx.addItem({ ...props.item, quantity: quantty });
+        console.log(cartCtx);
+    }
+
     return (
 
         <form className={classes.form}>
             <div >
-                <div className={classes.control}>
-                    <label htmlFor="amount">Amount</label>
-                    <input
-                        type="number"
-                        id="amount"
-                        placeholder="0"
-                        onChange={amountChangeHandler}
-                        value={amountNumber}></input>
-                </div>
+                <Input
+                    label='Amount'
+                    input={{
+                        id: 'amount_' + props.item.id,
+                        type: 'number',
+                        min: '1',
+                        max: '5',
+                        step: '1',
+                        defaultValue: 1,
+                    }}
+                />
 
-                <button onClick={props.onClick}>+Add</button>
+                <button onClick={addMealHandler}>+Add</button>
             </div>
 
         </form>

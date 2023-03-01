@@ -1,29 +1,41 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import CartContext from "./cart-context";
 
-const CartProvider=(props)=>{
-    const [confirmedMeal,setConfirmedMeal]=useState([]);
-    const [totalAmount,setTotalAmount]=useState(0)
+const CartProvider = (props) => {
+    const [confirmedMeal, setConfirmedMeal] = useState([]);
+    const [totalPrice, setTotalPrice] = useState(0);
 
-    const addItemHandler=(item)=>{
-        setConfirmedMeal((prevMeal) => {
-            return [ item,...prevMeal];
-       });
+    const addItemHandler = (item) => {
+
+        setConfirmedMeal([...confirmedMeal, item]);
+
+        setTotalPrice((prevPrice) => {
+            return (prevPrice +(item.price*item.quantity) )
+        });
     };
 
-setTotalAmount(totalAmount);
 
-    const removeItemHandler=(id)=>{
+
+    const removeItemHandler = (id) => {
+const newMeal=confirmedMeal.map((item)=>{
+    if(item.id===id){
+        return {...item,quantity:item.quantity-1};
+    }
+    return item;
+})
+setConfirmedMeal(newMeal);
+
 
     };
-    const cartContext={
-        items:confirmedMeal,
-        totalAmount:totalAmount,
+
+    const cartContext = {
+        items: confirmedMeal,
+        totalAmount: totalPrice,
         addItem: addItemHandler,
-        removeItem:removeItemHandler
+        removeItem: removeItemHandler
     };
-  
-    return(
+
+    return (
         <CartContext.Provider value={cartContext}>
             {props.children}
         </CartContext.Provider>

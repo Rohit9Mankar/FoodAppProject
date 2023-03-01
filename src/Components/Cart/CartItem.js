@@ -1,15 +1,22 @@
 import React from "react";
+
 import classes from './Cart.module.css';
 
-const CartItem=(props)=>{
-return(
-    <div>
+const CartItem = (props) => {
+    const price = `$${props.price.toFixed(2)}`;
+
+    return (
+        <li className={classes.control} key={props.id}>
+               
+               <span>{props.dish}</span> 
+               <span>{props.quantity}</span> 
+               <span>{price}</span> 
     
-<div className={classes.control}>
-<h3>{props.dish}</h3>
-<h3>{props.price}</h3>
-</div>
-</div>
-)
+                <button onClick={props.onRemove}>-</button>
+                <button onClick={props.onAdd}>+</button>
+    
+            </li>
+       
+    )
 }
 export default CartItem;

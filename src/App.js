@@ -22,7 +22,7 @@ function App() {
 
   return (
     <CartProvider>
-      {cartVisibility && <Cart onClick={closeHandler}></Cart>}
+      {cartVisibility && <Cart onClose={closeHandler}></Cart>}
       <Heading count="0" onClick={cartModalHandler} />
 
       <Meals  />
